@@ -1,0 +1,48 @@
+SCRUM Analitics DB Architechture:
+| Developer [i] | Sprint [i] | Ticket [i] ||||| SP | LW | Complejidad | Skill |
+
+//TODO: Growning stats
+
+1) dev(i).info() {dev(i).sprints() && dev(i).skills()}
+
+
+2) dev(i).sprints()
+    * Media(todos los sprints) de %sp cerrados / team sp cerrados
+    * Media(todos los sprints) #tickets complejos cerrados / team #tickets complejos cerrados
+    * Max dev[i] sp cerrados / team sp cerrados && que sprint
+    * Min dev[i] sp cerrados / team sp cerrados && que sprint
+
+3) dev(i).skills()
+	* List all skills gotten from closed tickets: {max1, max2, ... , min2, min3} //all skills != 0
+	* For each skill (z) on the list:
+		* #tickets cerrados de skill[z] por dev(i) (a) / #tickets cerrados de skill[z] por todos (b) , {a,b}
+
+4) dev(i).sprint(j):
+    * dev[i] sp cerrados / team sp cerrados
+    * dev[i] #tickets complejos cerrados / team #tickets complejos cerrados
+    * dev[i] #refined tickets / team #refined tickets ; if !training
+    * dev[i] #trainings; if training
+
+	
+5) dev(i).skill(j):
+    * #tickets cerrados de skill[j] por dev(i) (a) / #tickets cerrados de skill[j] por todos (b) , {a,b}
+    * dev[i] #tickets complejos cerrados / team #tickets complejos cerrados
+    * dev[i] #refined tickets / team #refined tickets ; if !training
+    * dev[i] #trainings; if training
+
+
+	Busquedas:
+	Por Sprint
+		Dado en numero de sprint (pe: 64), printa todos los developers:
+		(pe: if j=64; run forall i, dev(i).sprint(64))
+		Printa el refinamiento (dados todos los tickets de ese sprint, lw[i]/sp[i])
+	Por Developer
+		Dado el numero del developer (la lista esta en la pag principal), printa todas sus stats:
+		(pe: if i=7; run dev(7).stats);
+
+Puedes sacar:
+* Dado un Sprint:
+	* Dev[i] % en ese sprint
+Sprint (suma de todos los SP de todas las filas del Sprint i)
+Dev[i] = sp / sprint
+Dev[i] = %

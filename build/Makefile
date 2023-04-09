@@ -5,6 +5,7 @@
 CC=g++
 SRC=./../src/
 LIBS=./../libs/
+GIBLC=gdbm-1.8.0
 OBJS=./objs/
 BIN=../exe/
 

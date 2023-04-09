@@ -4,6 +4,7 @@ Tool for job performance analisis on SCRUM methodology
 <h2>Requirements:</h2>
 <ul>
 <li>.You must have GNU C++ compiler installed in your PC</li>
+<li>.You must have GDBM library installed in yout PC. Can be downloaded from here: https://ftp.gnu.org/gnu/gdbm/</li>
 </ul>
 <hr>
 <h2>Repository directories:</h2>
