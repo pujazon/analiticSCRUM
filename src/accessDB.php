@@ -1,9 +1,9 @@
 <?php
 if(isset($_POST['allDb'])) {
     $servername = "localhost";
-    $username = "id20580578_cm_admin_gdi";
-    $password = "LfPY|Q[GdUx()x2j";
-    $database = "id20580578_tsanaliticsdb";
+    $username = "X";
+    $password = "Y";
+    $database = "Z";
     
     // Create connection
     $conn = new mysqli($servername, $username, $password, $database);
