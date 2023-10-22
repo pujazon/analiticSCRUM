@@ -3,7 +3,7 @@
     <head>
         <title>SCRUM Analitics</title>
     </head>
-    <body>
+	<body bgcolor="#1B003A" text="#E2FFDC">
         <h1>Webapp used to analyze Development team performance into SCRUM methodology.</h1>
         <form method="post" action="accessDB.php">
             <input type="submit" name ="allDb" value="Viev all DB" />
@@ -14,6 +14,9 @@
          <input type="file" name="miArchivo">
          <button type="submit">Subir archivo</button>
        </form>
+        <form method="post" action="devStats.php">
+            <input type="submit" name ="devStats" value="Check Dev stats" />
+        </form>
         <hr> <hr>
         <h2>Database structure (Tickets table):</h2>
         <ul>    

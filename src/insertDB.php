@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SCRUM Analitics</title>
+    </head>
+	<body bgcolor="#1B003A" text="#E2FFDC">
 <?php
 require_once 'libs/HTML/Table.php';
 
@@ -70,3 +76,5 @@ if (isset($_FILES['miArchivo'])) {
     }
 }
 ?>
+    </body>
+</html>
