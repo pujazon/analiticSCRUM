@@ -32,16 +32,14 @@ if ($conn->connect_error) {
     $result = mysqli_query($conn, "SELECT SUM(sp) FROM `tickets` ORDER BY `sprint` DESC ") or die ("Could not search");
     $allData = $result->fetch_all();
 	$spTeam = $allData[0][0];
+	echo "<br>Total SP closed all team = ".$allData[0][0];
+	echo "<br>#team = ".$N;
 	$spDevMean = intval($spTeam)/$N;
     $result = mysqli_query($conn, "SELECT SUM(sp) FROM `tickets` WHERE `developer` LIKE '".$dev."' ORDER BY `sprint` DESC ") or die ("Could not search");
     $allData = $result->fetch_all();
 	$spDev = $allData[0][0];
 	$devPerformance = intval($spDev)/intval($spDevMean);
-
-	echo "<br>Total SP closed all team = ".$allData[0][0];
-	echo "<br>#team = ".$allData[0][0];
 	echo "<h2><b>SP/Dev = ".$spDevMean."</b></h2>";
-
 	echo "<h2><b>Total SP closed Dev[i]= ".$spDev."</b></h2>";
 	echo "<h2><b>Performance= ".$devPerformance."</b></h2>";
 	
