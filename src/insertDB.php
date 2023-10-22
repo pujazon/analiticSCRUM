@@ -25,5 +25,29 @@ if (isset($_FILES['miArchivo'])) {
     $error = $_FILES['miArchivo']['error'];
 
 	echo "Uploaded ".$nombre." successfull!";
+	echo "<br>";
+	echo "Tmp name is  ".$temporal;
+    echo "<br>";
+	
+    $content = file_get_contents($_FILES["miArchivo"]["tmp_name"]);
+    $lines = explode("\n", $content); // TAKING NEW ROW BY ' \n '
+
+	
+	echo "<hr>";
+	echo "<hr>";
+	echo "Preview:";
+	echo "<hr>";
+	
+	echo "<br>";
+	echo "<hr>";
+
+	foreach ($lines as $line) {
+        $row = explode(":", $line); //IN TEXT FILE COLUMN IS SEPARATED BY ' : '
+		echo $row[0];
+	    echo "<hr>";
+	}
+	echo "<br>";
+	echo "<hr>";
+	echo "<hr>";
 }
 ?>
