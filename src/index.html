@@ -4,11 +4,12 @@
         <title>SCRUM Analitics</title>
     </head>
     <body>
-        <h1>Webapp used to analyze SCRUM team job performance into SCRUM methodology.</h1>
+        <h1>Webapp used to analyze Development team performance into SCRUM methodology.</h1>
         <form method="post" action="accessDB.php">
             <input type="submit" name ="allDb" value="Viev all DB" />
         </form>
         <hr> <hr>
+	   <h2> Update new data into DB as .csv following Database structure commented below: </h2>
        <form action="insertDB.php" method="POST" enctype="multipart/form-data">
          <input type="file" name="miArchivo">
          <button type="submit">Subir archivo</button>

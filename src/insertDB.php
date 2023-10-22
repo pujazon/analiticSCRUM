@@ -31,6 +31,7 @@ if (isset($_FILES['miArchivo'])) {
 	
     $content = file_get_contents($_FILES["miArchivo"]["tmp_name"]);
     $lines = explode("\n", $content); // TAKING NEW ROW BY ' \n '
+	$insertSQLCmd = "INSERT INTO `tickets` (`id`, `developer`, `project`, `sprint`, `sp`, `lw`, `complexity`, `skill`, `info`) VALUES ";
 
 	
 	echo "<hr>";
@@ -42,12 +43,30 @@ if (isset($_FILES['miArchivo'])) {
 	echo "<hr>";
 
 	foreach ($lines as $line) {
-        $row = explode(":", $line); //IN TEXT FILE COLUMN IS SEPARATED BY ' : '
-		echo $row[0];
+        $fields = explode(";", $line); //IN TEXT FILE COLUMN IS SEPARATED BY ' : '
+		echo $line;
+		//echo "<br>"
+		//echo $fields[0][0];
+		$insertSQLCmd = $insertSQLCmd."(";
+		foreach($fields as $field) {
+			$field = str_replace("'", "`", $field);
+			$insertSQLCmd = $insertSQLCmd."'".$field."', ";
+		}
+		$insertSQLCmd = substr_replace($insertSQLCmd ,"", -2); //Get out of sql charact of last element, not req
+		$insertSQLCmd = $insertSQLCmd."), ";
 	    echo "<hr>";
 	}
 	echo "<br>";
 	echo "<hr>";
 	echo "<hr>";
+	echo "<h1> Query to be sent: </h1> <br>";
+    $insertSQLCmd = substr_replace($insertSQLCmd ,"", -8); //Get out of sql charact of last element, not req
+	echo $insertSQLCmd;
+
+    if ($conn->query($insertSQLCmd) === TRUE) {
+      echo "New record created successfully";
+    } else {
+      echo "<br> <h2> Error on upload DB! " . $sql . "<br>" . $conn->error."</h2>";
+    }
 }
 ?>
