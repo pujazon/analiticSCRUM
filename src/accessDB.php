@@ -36,19 +36,20 @@ if(isset($_POST['allDb'])) {
     $table->setColAttributes(0, $hrAttrs);
 
     $result = mysqli_query($conn, "SELECT * FROM tickets") or die ("Could not search");
-    $data= mysqli_fetch_array($result);
-
-    for ($nr = 0; $nr < count($data); $nr++) {
+    $allData = $result->fetch_all();
+	$nr=0;
+	foreach($allData as $data) {
       //TODO: Parse must be modified
-      $data= mysqli_fetch_array($result);
       //DBG
-      echo $data[0];
+      echo implode(" ",$data);
+
       $table->setHeaderContents($nr+1, 0, (string)$nr);
       for ($i = 0; $i < 4; $i++) {
-        if ('' != $data[$nr][$i]) {
-          $table->setCellContents($nr+1, $i+1, $data[$nr][$i]);
+        if (" " != $data[$nr]) {
+          $table->setCellContents($nr+1, $i+1, $data[$nr]);
         }
       }
+	  $nr++;
     }
     $altRow = array('bgcolor' => 'red');
     $table->altRowAttributes(1, null, $altRow);

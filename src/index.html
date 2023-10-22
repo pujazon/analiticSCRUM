@@ -9,6 +9,11 @@
             <input type="submit" name ="allDb" value="Viev all DB" />
         </form>
         <hr> <hr>
+       <form action="insertDB.php" method="POST" enctype="multipart/form-data">
+         <input type="file" name="miArchivo">
+         <button type="submit">Subir archivo</button>
+       </form>
+        <hr> <hr>
         <h2>Database structure (Tickets table):</h2>
         <ul>    
             <li>Ticket id (primary key): Jira ticket reference</li>
